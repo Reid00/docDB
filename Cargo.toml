@@ -9,7 +9,7 @@ homepage = "https://github.com/Reid00/docDB"
 repository = "https://github.com/Reid00/docDB"
 readme = "README.md"
 keywords = ["database", "key-value-store", "db", "kv", "docdb"]
-categories = ["database-implementations", "database", "kv"]
+categories = ["database-implementations", "database"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
