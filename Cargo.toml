@@ -3,6 +3,7 @@ name = "docdb"
 version = "0.1.0"
 edition = "2021"
 license = "Apache"
+authors = ["Reid <reid@gmail.com>"]
 description = "A lightweight and simple key-value store written in Rust"
 homepage = "https://github.com/Reid00/docDB"
 repository = "https://github.com/Reid00/docDB"
