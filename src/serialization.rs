@@ -5,8 +5,9 @@ use crate::error::{DocError, Result};
 use serde::de::DeserializeOwned;
 use serde::Serialize;
 
+#[allow(dead_code)]
 pub struct DocSerializer {}
-
+#[allow(dead_code)]
 impl DocSerializer {
     fn serialize_data<V>(&self, data: &V) -> Result<Vec<u8>>
     where
@@ -25,9 +26,7 @@ impl DocSerializer {
     }
 
     fn serialize_db(&self, map: &HashMap<String, Vec<u8>>) -> Result<Vec<u8>> {
-        let mut db_map = HashMap::new();
-
-        db_map = map
+        let db_map: HashMap<&String, &str> = map
             .iter()
             .map(|(k, v)| (k, std::str::from_utf8(v).unwrap()))
             .collect();
@@ -40,9 +39,7 @@ impl DocSerializer {
         let db_data = std::str::from_utf8(db)?;
         let data = serde_json::from_str::<HashMap<String, String>>(db_data)?;
 
-        let mut hmap = HashMap::new();
-
-        hmap = data
+        let hmap: HashMap<String, Vec<u8>> = data
             .iter()
             .map(|(k, v)| (k.to_string(), v.as_bytes().to_vec()))
             .collect();
