@@ -4,6 +4,7 @@ use std::fmt;
 use crate::error::{DocError, Result};
 use serde::de::DeserializeOwned;
 use serde::Serialize;
+
 pub struct DocSerializer {}
 
 impl DocSerializer {
@@ -117,8 +118,7 @@ impl JsonSerializer {
     }
 
     fn serialize_db(&self, map: &DbMap) -> Result<Vec<u8>> {
-        let mut json_map = HashMap::new();
-        json_map = map
+        let json_map: HashMap<&String, &str> = map
             .iter()
             .map(|(k, v)| (k, std::str::from_utf8(v).unwrap()))
             .collect();
